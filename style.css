@@ -1,0 +1,21 @@
+#statusBar {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    background-color:green;
+}
+
+#myProgress {
+    background-color: red;
+    width: 10px;
+    height: 40px;
+    position: absolute;
+}
+
+
+
+/* #startBtn{
+ btn-success;
+  btn-lg btn-block
+
+} */
