@@ -12,10 +12,23 @@
     position: absolute;
 }
 
+.pageTitle {
+color: blue;
+position: relative;
+text-align: center;
+}
 
+.scoreList {
+color: Green;
+position: relative;
+text-align: center;
+}
 
-/* #startBtn{
- btn-success;
-  btn-lg btn-block
-
-} */
+#instructions {
+color: black;
+font-size: 1.5rem;
+position: relative;
+text-align: center;
+font-weight: bold;
+display: inline-block;
+}

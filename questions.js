@@ -4,7 +4,7 @@
 //Following questions from Geeks for Geeks: JavaScript Quiz sets 1, 2, 3. 
 //https://www.geeksforgeeks.org/javascript-quiz-set-1/
 
-var QuizQuestions = [
+var quizQuestions = [
     {
 Question: 'What is the HTML tag under which one can write the JavaScript code?',
 Answers: ['<javascript>', '<scripted>', '<script>', '<js>'], 
@@ -68,4 +68,4 @@ Correct: 'Netscape',
 
 ];
 
-console.log(QuizQuestions)
+console.log(quizQuestions)
