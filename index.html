@@ -16,9 +16,6 @@
     <button class="btn btn-info btn-lg m-4 p-4 float-right">Timer</button>
     <!-- <button type="button"  <a href="highScores.html"></a> >High Scores</button> -->
 
-    <br>
-    <br>
-    <br>
     <p id="instructions"> 
     Welcome to the JavaScript Coding Quiz. <br> 
     You will be asked 5 questions about JavaScript. <br>
@@ -33,12 +30,18 @@
     <div id="myProgress"></div>
 </div> -->
 
-<div class="questionBlock"></div>
-<div class="answerBlock"></div>
-<br>
-<br>
+<div id="qBlock"></div>
+<div class="btn-group-vertical" id="aBlock">
+    <button class="btn btn-lg aBlockBtn hide" id="ansBtn0">Answer1</button>
+    <button class="btn btn-lg aBlockBtn hide" id="ansBtn1">Answer2</button>
+    <button class="btn btn-lg aBlockBtn hide" id="ansBtn2">Answer3</button>
+    <button class="btn btn-lg aBlockBtn hide" id="ansBtn3">Answer4</button>
 
-<button id="startBtn" class= "btn btn-success btn-lg btn-block" onclick="moveBar()"; >Start</button>
+<!-- reremoved from buttom class quotes      btn text-white bg-dark btn-lg -->
+
+</div>
+
+<button id="startBtn" class= "btn btn-success btn-lg btn-block">Start</button>
 <!-- removed from line above onclick="moveBar()"-->
     
 <script src="questions.js"></script>

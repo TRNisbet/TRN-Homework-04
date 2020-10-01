@@ -1,3 +1,19 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: georgia, sans-serif;
+}
+
+p {
+padding: 0;
+margin: 0;
+display: flex;
+width: 100vw;
+height: 50vh;
+justify-content: center;
+align-items: center; 
+
+}
+
 #statusBar {
     width: 100%;
     height: 40px;
@@ -31,4 +47,32 @@ position: relative;
 text-align: center;
 font-weight: bold;
 display: inline-block;
+}
+
+#qBlock{
+color: black;
+font-size: 1.5rem;
+position: relative;
+text-align: center;
+font-weight: bold;
+display: inline-block;
+}
+
+#aBlock {
+position: relative;
+text-align: center;
+display: flex;
+justify-content: center;
+}
+
+.aBlockBtn {
+    border: 5px solid black;
+    background-color: #17a2b8;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 10px;
+}
+
+.hide {
+  display: none;
 }
