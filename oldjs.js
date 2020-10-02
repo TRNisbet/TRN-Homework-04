@@ -1,3 +1,91 @@
+//more old code 
+// function correctAns(){
+// 	if (document.getElementbyID) {
+
+// 	}
+
+// }
+
+
+// function selectAns() {
+
+// }
+
+
+// for (var index = 0; index < quizQuestions.length; index++) {
+// 	var userAns = quizQuestions[index].correct; //need to display question and answer in Div on HTML
+
+// 	if (userAns === quizQuestions[index].correct && time>0) {
+// 		score = score + 10;
+// 	} else if (userAns !== quizQuestions[index].correct && time > 0) {
+// 		score = score - 10;
+// 	} else {
+
+// 	}
+
+// }
+
+
+// function nxtQues() {
+// 	var currentQuestion = quizQuestions[questionNumber];
+// 	console.log('currentQuestion:', currentQuestion)
+
+// 	var questionContainer = document.getElementById('qBlock')[0];
+// 	console.log('questionContainer:', questionContainer)
+
+// 	var questionTitle = document.createElement('h3');
+// 	questionTitle.textContent = currentQuestion.Question;
+// 	questionContainer.appendChild(questionTitle);
+// 	var answerContainer = document.getElementById('aBlock')[0];
+
+
+// 	currentQuestion.Answers.forEach(answer => {
+// 		var answerBtn = document.createElement('button');
+// 		answerBtn.setAttribute('value', answer);
+// 		answerBtn.textContent = answer;
+// 		answerBtn.onclick = clickAnswer;
+// 		answerContainer.appendChild(answerBtn);
+// 		return answerContainer;
+// 	});
+// }
+
+
+
+
+	// document.getElementById("ansBtn0").addEventListener("click", function () {
+	// 	selectedAns = shuffledQues[quesCount].answer[0];
+	// 	console.log('selectedAns0:', selectedAns)
+	// 	correctAns();
+	// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //New attempt above - tutor info below
 
 // function nextQuestion () {
