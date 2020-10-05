@@ -12,10 +12,19 @@
 <body>
 
     <h1 class="pageTitle">JavaScript Coding Quiz</h1>
-    <a href="./highscores.html" class="btn btn-info btn-lg m-4 p-4 float-left">High Scores</a>
-    <button class="btn btn-info btn-lg m-4 p-4 float-right">Timer</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">     
+                 <a href="./highscores.html" class="btn btn-info btn-lg m-4 p-4 float-left">High Scores</a>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-info btn-lg m-4 p-4 float-right" id="count">Timer</button>
     <!-- <button type="button"  <a href="highScores.html"></a> >High Scores</button> -->
+            </div>
+        </div>
+    </div>
 
+    
     <p id="instructions"> 
     Welcome to the JavaScript Coding Quiz. <br> 
     You will be asked 5 questions about JavaScript. <br>
@@ -39,8 +48,8 @@
 
 <!-- reremoved from buttom class quotes      btn text-white bg-dark btn-lg -->
 
-</div>
 
+</div>
 <button id="startBtn" class= "btn btn-success btn-lg btn-block">Start</button>
 <!-- removed from line above onclick="moveBar()"-->
     

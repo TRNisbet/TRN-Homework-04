@@ -2,7 +2,7 @@
 const startButton = document.getElementById('startBtn');
 var quesEl = document.getElementById('qBlock');
 const ansEl = document.getElementById("aBlock");
-// let shuffledQues; 
+let shuffledQues; 
 var quesCount = 0;
 var score = 0;
 var selectedAns = "";
@@ -12,26 +12,61 @@ var ansButton1 = document.getElementById("ansBtn1");
 var ansButton2 = document.getElementById("ansBtn2");
 var ansButton3 = document.getElementById("ansBtn3");
 
-
-// const startGame = document.getElementById('startBtn');
+var count = 15;
+var finalScore = 0;
+var interval;
 qBlockEl = document.getElementsByClassName('qBlock');
 
 
 startButton.addEventListener('click', start);
 
 
+document.getElementById("ansBtn0").addEventListener("click", function () {
+	selectedAns = shuffledQues[quesCount].answer[0];
+	correctAns();
+});
+
+document.getElementById("ansBtn1").addEventListener("click", function () {
+	selectedAns = shuffledQues[quesCount].answer[1];
+	correctAns();
+});
+
+document.getElementById("ansBtn2").addEventListener("click", function () {
+	selectedAns = shuffledQues[quesCount].answer[2];
+	correctAns();
+});
+
+document.getElementById("ansBtn3").addEventListener("click", function () {
+	selectedAns = shuffledQues[quesCount].answer[3];
+	correctAns();
+});
+
+
 function start(){
-	startButton.classList.add('hide')
-	$('#instructions').hide();
-	ansButton0.classList.remove("hide");
-	ansButton1.classList.remove("hide");
-	ansButton2.classList.remove("hide");
-	ansButton3.classList.remove("hide");
-	// shuffledQues = quizQuestions.sort(() => Math.random() - .5);
-	// console.log('shuffledQues:', shuffledQues)
-	score = 0;
-	quesCount = 0;
-	showQues();
+		startButton.classList.add('hide')
+		$('#instructions').hide();
+		ansButton0.classList.remove("hide");
+		ansButton1.classList.remove("hide");
+		ansButton2.classList.remove("hide");
+		ansButton3.classList.remove("hide");
+		shuffledQues = quizQuestions.sort(() => Math.random() - .5);
+		score = 0;
+		quesCount = 0;
+		finalScore = 0;
+
+		interval = setInterval(function(){
+			if (count > 0 && quesCount < quizQuestions.length) {
+			console.log('quizQuestionsInTimer:', quizQuestions)
+			console.log('quesCountInTimer:', quesCount)
+			document.getElementById('count').innerHTML=count;
+			count--;
+			showQues();
+		} else {
+		document.getElementById('count').innerHTML = 'Done';
+		calcScore();
+		return;
+		};
+	}, 1000);
 }
 
 function showQues() {
@@ -40,68 +75,42 @@ function showQues() {
 	ansButton1 = "";
 	ansButton2 = "";
 	ansButton3 = "";
+
 	quesEl.innerText = quizQuestions[quesCount].question;
-	
-	console.log('quesCountAtTopofShowQuesFunction:', quesCount);
-	console.log('quizQuestions:', quizQuestions[quesCount]);
 
-	
 	document.getElementById("ansBtn0").innerText =
-		quizQuestions[quesCount].answer[0];
-		document.getElementById("ansBtn0").addEventListener("click", function () {
-			selectedAns = quizQuestions[quesCount].answer[0];
-		correctAns();
-	});
-	
+		shuffledQues[quesCount].answer[0];
 	document.getElementById("ansBtn1").innerText =
-		quizQuestions[quesCount].answer[1];
-	document.getElementById("ansBtn1").addEventListener("click", function () {
-		selectedAns = quizQuestions[quesCount].answer[1];
-		correctAns();
-	});
-
+		shuffledQues[quesCount].answer[1];
 	document.getElementById("ansBtn2").innerText =
-		quizQuestions[quesCount].answer[2];
-	document.getElementById("ansBtn2").addEventListener("click", function () {
-		selectedAns = quizQuestions[quesCount].answer[2];
-		correctAns();
-	});
-	
+		shuffledQues[quesCount].answer[2];
 	document.getElementById("ansBtn3").innerText =
-		quizQuestions[quesCount].answer[3];
-	document.getElementById("ansBtn3").addEventListener("click", function () {
-		selectedAns = quizQuestions[quesCount].answer[3];
-		correctAns();
-	});
+		shuffledQues[quesCount].answer[3];
 }
 
 
 
 function correctAns(){
-	if (quesCount < quizQuestions.length) {
-		console.log('quesCount Right After "IF":', quesCount)
-		
-	
-		if (selectedAns === quizQuestions[quesCount].correct) {
-				console.log("YES!!!");
+		if (selectedAns === shuffledQues[quesCount].correct) {
 				score = score + 10;
-				console.log('score:', score);
+				count = count + 10;
 			} else {
-				console.log("FAIL!!!");
 				score = score - 10;
-				console.log('score:', score);
+			 	count = count - 10;
 			}
 		quesCount++;
-
 		showQues();
-
-	} else{ 
-		console.log("It stopped")
-		console.log("quizQuestions.length UNDER STOP", quizQuestions.length)
-		
-		}
-
 }
+
+function calcScore(){
+	console.log('score before adding count:', score);
+	finalScore = score + count; 
+	document.getElementById('count').innerHTML = "You Scored " + score;
+	console.log('score after adding count:', score);
+	userNamne= prompt("Please Enter Your Name, ");
+	clearInterval(interval);
+	}
+
 
 
 
@@ -165,8 +174,6 @@ var quizQuestions = [
 		answer: ['Mozilla Firefox', 'Netscape', 'Google Chrome', 'Internet Explorer'],
 		correct: 'Netscape',
 	}
-
-
 ];
 
 
