@@ -1,21 +1,17 @@
-
 const startButton = document.getElementById('startBtn');
 var quesEl = document.getElementById('qBlock');
-const ansEl = document.getElementById("aBlock");
 let shuffledQues; 
 var quesCount = 0;
 var score = 0;
 var selectedAns = "";
-// I could not hide the methods by class, s I created an ID for each button
+var highScoreStorage = [];
+var timer = 15;
+var finalScore = 0;
+var interval = 0;
 var ansButton0 = document.getElementById("ansBtn0");
 var ansButton1 = document.getElementById("ansBtn1");
 var ansButton2 = document.getElementById("ansBtn2");
 var ansButton3 = document.getElementById("ansBtn3");
-
-var count = 15;
-var finalScore = 0;
-var interval;
-qBlockEl = document.getElementsByClassName('qBlock');
 
 
 startButton.addEventListener('click', start);
@@ -43,25 +39,19 @@ document.getElementById("ansBtn3").addEventListener("click", function () {
 
 
 function start(){
-		startButton.classList.add('hide')
 		$('#instructions').hide();
-		ansButton0.classList.remove("hide");
-		ansButton1.classList.remove("hide");
-		ansButton2.classList.remove("hide");
-		ansButton3.classList.remove("hide");
+		toggleHide();
 		shuffledQues = quizQuestions.sort(() => Math.random() - .5);
 		score = 0;
 		quesCount = 0;
 		finalScore = 0;
-
 		interval = setInterval(function(){
-			if (count > 0 && quesCount < quizQuestions.length) {
-			console.log('quizQuestionsInTimer:', quizQuestions)
-			console.log('quesCountInTimer:', quesCount)
-			document.getElementById('count').innerHTML=count;
-			count--;
+			if (timer > 0 && quesCount < quizQuestions.length) {
+			document.getElementById('count').innerHTML=timer;
+			timer--;
 			showQues();
-		} else {
+		} 
+		else {
 		document.getElementById('count').innerHTML = 'Done';
 		calcScore();
 		return;
@@ -88,30 +78,42 @@ function showQues() {
 		shuffledQues[quesCount].answer[3];
 }
 
-
-
 function correctAns(){
 		if (selectedAns === shuffledQues[quesCount].correct) {
 				score = score + 10;
-				count = count + 10;
+				timer = timer + 10;
 			} else {
 				score = score - 10;
-			 	count = count - 10;
+				timer = timer - 10;
 			}
 		quesCount++;
 		showQues();
 }
 
 function calcScore(){
-	console.log('score before adding count:', score);
-	finalScore = score + count; 
-	document.getElementById('count').innerHTML = "You Scored " + score;
-	console.log('score after adding count:', score);
-	userNamne= prompt("Please Enter Your Name, ");
+	finalScore = score + timer; 
+	document.getElementById('count').innerHTML = "You Scored " + finalScore;
+	$('#instructions').show();
+	userName= prompt("Please Enter Your Name, ");
+	var userObject = {
+		Name: userName,
+		Score: finalScore
+	}
+	highScoreStorage.push(userObject);
+	localStorage.setItem("userHighScore", JSON.stringify(highScoreStorage));
 	clearInterval(interval);
+	toggleHide();
+	return;
 	}
 
-
+function toggleHide(){
+	startButton.classList.toggle("hide");
+	ansButton1.classList.toggle("hide");
+	ansButton0.classList.toggle("hide");
+	ansButton2.classList.toggle("hide");
+	ansButton3.classList.toggle("hide");
+	return;
+}
 
 
 var quizQuestions = [

@@ -1,5 +1,5 @@
 
-//Does this look to call the parts of the objects to get the questions to generate?  
+
 
 //Following questions from Geeks for Geeks: JavaScript Quiz sets 1, 2, 3. 
 //https://www.geeksforgeeks.org/javascript-quiz-set-1/

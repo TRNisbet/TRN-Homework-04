@@ -1,3 +1,18 @@
+TRN 04 Web APIs: Code Quiz
+
+The quiz in this repo, functions but not to the parameters set forth in the instructions.  The assignment is past its due date and I am coninuing to make updats to the repo.  The questions cycle and calculate score correctly.  They are stored to local memory, but I do not have them displaying on the High Score page.  The quiz, when finished, does not hide the question and answer buttons.  The repo is done for now, but I hope to come back and fix the remaining shortcomings.  
+
+
+//The questions are from Geeks for Geeks: JavaScript Quiz sets 1, 2, 3. 
+//https://www.geeksforgeeks.org/javascript-quiz-set-1/
+
+
+
+
+
+
+
+
 # 04 Web APIs: Code Quiz
 
 As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
