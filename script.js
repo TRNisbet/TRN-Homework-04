@@ -39,10 +39,10 @@ document.getElementById("ansBtn3").addEventListener("click", function () {
 
 
 function start(){
-		$('#instructions').hide();
 		toggleHide();
 		shuffledQues = quizQuestions.sort(() => Math.random() - .5);
 		score = 0;
+		timer = 15;
 		quesCount = 0;
 		finalScore = 0;
 		interval = setInterval(function(){
@@ -66,7 +66,7 @@ function showQues() {
 	ansButton2 = "";
 	ansButton3 = "";
 
-	quesEl.innerText = quizQuestions[quesCount].question;
+	quesEl.innerHTML = quizQuestions[quesCount].question;
 
 	document.getElementById("ansBtn0").innerText =
 		shuffledQues[quesCount].answer[0];
@@ -93,7 +93,6 @@ function correctAns(){
 function calcScore(){
 	finalScore = score + timer; 
 	document.getElementById('count').innerHTML = "You Scored " + finalScore;
-	$('#instructions').show();
 	userName= prompt("Please Enter Your Name, ");
 	var userObject = {
 		Name: userName,
@@ -102,16 +101,18 @@ function calcScore(){
 	highScoreStorage.push(userObject);
 	localStorage.setItem("userHighScore", JSON.stringify(highScoreStorage));
 	clearInterval(interval);
+	quesEl.innerHTML = "";
 	toggleHide();
-	return;
+
 	}
 
 function toggleHide(){
-	startButton.classList.toggle("hide");
-	ansButton1.classList.toggle("hide");
-	ansButton0.classList.toggle("hide");
-	ansButton2.classList.toggle("hide");
-	ansButton3.classList.toggle("hide");
+	$("#instructions").toggle();
+	$("#startBtn").toggle();
+	$("#ansBtn0").toggle();
+	$("#ansBtn1").toggle();
+	$("#ansBtn2").toggle();
+	$("#ansBtn3").toggle();
 	return;
 }
 
